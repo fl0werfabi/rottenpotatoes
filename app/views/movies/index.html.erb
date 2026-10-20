@@ -1,16 +1,57 @@
+
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Movies" %>
 
-<h1>Movies</h1>
+<h1>RottenPotatoes Movie Catalog</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-</div>
+<p>Browse our collection of movies below!</p>
 
-<%= link_to "New movie", new_movie_path %>
+<table class="movies-table">
+  <thead>
+    <tr>
+      <% { "title" => "Title", "rating" => "Rating", "release_date" => "Release Date" }.each do |column, label| %>
+        <% active = @sort_column == column %>
+        <% next_direction = active && @sort_direction == "asc" ? "desc" : "asc" %>
+
+        <th scope="col" class="<%= 'sorted-column' if active %>" aria-sort="<%= active ? (@sort_direction == 'asc' ? 'ascending' : 'descending') : 'none' %>">
+          <%= link_to movies_path(sort: column, direction: next_direction) do %>
+            <%= label %>
+            <% if active %>
+              <span aria-hidden="true"><%= @sort_direction == "asc" ? "▲" : "▼" %></span>
+            <% end %>
+          <% end %>
+        </th>
+      <% end %>
+
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td class="<%= 'sorted-column' if @sort_column == 'title' %>">
+          <%= movie.title %>
+        </td>
+        <td class="<%= 'sorted-column' if @sort_column == 'rating' %>">
+          <%= movie.rating %>
+        </td>
+        <td class="<%= 'sorted-column' if @sort_column == 'release_date' %>">
+          <%= movie.release_date&.strftime("%B %d, %Y") || "N/A" %>
+        </td>
+        <td>
+          <%= movie.description.presence || "No description available" %>
+        </td>
+        <td>
+          <%= link_to "View Details", movie_path(movie) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to "Add New Movie", new_movie_path %>
+</p>

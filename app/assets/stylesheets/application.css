@@ -8,3 +8,175 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+/* RottenPotatoes - Custom Movie Catalog Styles */
+
+:root {
+    --burgundy: #702c3e;
+    --burgundy-dark: #51202e;
+    --cream: #f8f2e9;
+    --gold: #d6a65d;
+    --charcoal: #29232a;
+    --white: #ffffff;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 35px;
+    background-color: var(--cream);
+    color: var(--charcoal);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    color: var(--burgundy);
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+  }
+  
+  h2, h3 {
+    color: var(--burgundy-dark);
+  }
+  
+  a {
+    color: var(--burgundy);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--burgundy-dark);
+    text-decoration: underline;
+  }
+  
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+  }
+  
+  /* Movie listing table */
+  
+  .movies-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(41, 35, 42, 0.1);
+  }
+  
+  .movies-table th,
+  .movies-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e8deda;
+  }
+  
+  .movies-table th {
+    background-color: var(--burgundy);
+    color: var(--white);
+    font-weight: 700;
+  }
+  
+  .movies-table th a {
+    color: var(--white);
+  }
+  
+  .movies-table th a:hover {
+    color: #ffe5af;
+  }
+  
+  .movies-table tbody tr:hover {
+    background-color: #fff8ee;
+  }
+  
+  /* Highlight the active sorting column */
+  
+  .movies-table th.sorted-column {
+    background-color: #a24b57;
+    box-shadow: inset 0 -4px 0 var(--gold);
+  }
+  
+  .movies-table td.sorted-column {
+    background-color: #f6e7d3;
+    font-weight: 600;
+  }
+  
+  .movies-table tbody tr:hover td.sorted-column {
+    background-color: #eed9bd;
+  }
+  
+  /* Forms and buttons */
+  
+  input,
+  textarea,
+  select {
+    max-width: 100%;
+    padding: 10px;
+    margin: 6px 0 14px;
+    border: 1px solid #b9a8a4;
+    border-radius: 6px;
+    background-color: var(--white);
+    font: inherit;
+  }
+  
+  input[type="submit"],
+  button {
+    padding: 10px 18px;
+    background-color: var(--burgundy);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+  }
+  
+  input[type="submit"]:hover,
+  button:hover {
+    background-color: var(--burgundy-dark);
+  }
+  
+  /* General page content */
+  
+  #movies {
+    margin-top: 20px;
+  }
+  
+  .notice {
+    color: #21633c;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 700px) {
+    body {
+      padding: 16px;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    .movies-table {
+      display: block;
+      overflow-x: auto;
+    }
+  
+    .movies-table th,
+    .movies-table td {
+      padding: 10px;
+      white-space: nowrap;
+    }
+  }
+  
