@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# RottenPotatoes
 
-* Ruby version
+A Ruby on Rails movie catalog application developed for CSCE 606 Software Engineering.
 
-* System dependencies
+## Deployed Application
 
-* Configuration
+https://fierce-forest-77514-b37dbc8acf55.herokuapp.com/
 
-* Database creation
+## Features
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Create, view, edit, and delete movie records
+- Browse movies in an HTML table
+- Sort movies by title, rating, and release date
+- Highlight the active sorting column
+- Responsive styling using handwritten CSS
+- PostgreSQL database in production
